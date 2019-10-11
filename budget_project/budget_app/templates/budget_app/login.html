@@ -11,8 +11,29 @@
     </head>
 
     <body>
-        <h1>Log in here.</h1>
-
+        <div class="section">
+            <div class="container">
+                <h2 class="center">Please sign in to view your budget informtion.</h2>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <form class="col s12" method='post' action='{% url "check_info" %}'>
+                    {% csrf_token %}
+                    <div class='input-field col s4'>
+                        <input placeholder='Username'
+                        name='username'
+                        type='text'>
+                    </div>
+                    <div class="input-field col s4">
+                        <input placeholder="Password"
+                        name="password"
+                        type="text">
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Sign in</button>
+                </form>
+            </div>
+        </div>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
