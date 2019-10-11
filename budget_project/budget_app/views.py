@@ -4,4 +4,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Yerrr')
+    return render(request,'budget_app/index.html')
+
+def login(request):
+    return render(request,'budget_app/login.html')
