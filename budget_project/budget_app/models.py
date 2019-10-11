@@ -12,6 +12,7 @@ class AccountInfo(models.Model):
         return self.username
 
 class ExpenseInfo(models.Model):
-    expenses = models.IntegerField()
+    expense_name = models.CharField(max_length=20)
+    cost = models.IntegerField()
     date_added = models.DateTimeField()
     user = models.ForeignKey(AccountInfo, on_delete=models.CASCADE)

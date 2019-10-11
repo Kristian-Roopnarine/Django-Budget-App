@@ -5,6 +5,7 @@
 <html>
 
     <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <title>Budget App</title>
         
@@ -12,11 +13,69 @@
     </head>
 
     <body>
-        <h1>Welcome to the budget app.</h1>
+        
+        <nav>
+            <div class="nav-wrapper">
+                <a href='{% url "index" %}' class='brand-logo center'>Hi, Bob!</a>
+            </div>
+        </nav>
+
+        <div class="section">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="container">
+                            <div class="input-field col s3">
+                                <input placeholder="Expense name" id='expense_name' type='text' class='validate'>
+                                <label for='expense_name'>Expense name</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input placeholder='Cost' id='cost' type='text' class='validate'>
+                                <label for='cost'>Cost</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input placeholder = 'Date of Expense' id="expense_date" type="text" class='datepicker'>
+                                <label for="expense_date">Expense Date</label>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Add Expense
+                                <i class="material-icons right">add_circle</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="row">
+                <div class="container">
+                    <div class="col s4">
+                        <ul class="collection">
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                            <li class="collection-item">Alvin</li>
+                        </ul>
+                    </div>
+                    <div class="col s4 offset-s2">
+                        <h2>This is where the visualization would go .</h1>
+                    </div>
+                </div>
+        </div>
+
+            
+        </div>
 
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.datepicker');
+                var instances = M.Datepicker.init(elems, 'autoClose');
+            });
+        </script>
     </body>
 
 </html>
