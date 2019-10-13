@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
-
+'''
 class AccountInfo(models.Model):
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
@@ -10,9 +11,9 @@ class AccountInfo(models.Model):
     
     def __str__(self):
         return self.username
-
+'''
 class ExpenseInfo(models.Model):
     expense_name = models.CharField(max_length=20)
     cost = models.IntegerField()
     date_added = models.DateTimeField()
-    user = models.ForeignKey(AccountInfo, on_delete=models.CASCADE)
+    users = models.ForeignKey(User, on_delete=models.CASCADE)
