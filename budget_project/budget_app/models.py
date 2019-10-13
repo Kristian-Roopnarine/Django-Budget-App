@@ -15,5 +15,5 @@ class AccountInfo(models.Model):
 class ExpenseInfo(models.Model):
     expense_name = models.CharField(max_length=20)
     cost = models.IntegerField()
-    date_added = models.DateTimeField()
-    users = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_added = models.DateField()
+    user_expense = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -17,13 +17,16 @@
         
         <nav>
             <div class="nav-wrapper">
-                <a href='{% url "index" %}' class='brand-logo center'>Hi, Bob!</a>
+                <a href='{% url "index" %}' class='brand-logo center'>Hi, {{ user }}</a>
+                <ul class="right">
+                    <li><a href='{% url "logout" %}' class='btn'>Logout</a></li>
+                </ul>
             </div>
         </nav>
 
         <div class="section">
             <div class="row">
-                <form class="col s12" action='{% url "index" %}' method='post'>
+                <form class="col s12" action='{% url "add item" %}' method='post'>
                     {% csrf_token %}
                     <div class="row">
                         <div class="container">
@@ -58,15 +61,19 @@
                                     <th>Item</th>
                                     <th>Cost</th>
                                     <th>Date</th>
+                                    <th></th>
                                 </tr>
                             </thead>
 
                             <tbody>
+                                {% for expense_item in expense_items %}
                                 <tr>
-                                    <td>Balls</td>
-                                    <td>1$</td>
-                                    <td>Today</td>
+                                    <td>{{ expense_item.expense_name }}</td>
+                                    <td>{{ expense_item.cost }}</td>
+                                    <td>{{ expense_item.date_added}}</td>
+                                    <td></td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -86,7 +93,7 @@
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function() {
                 var elems = document.querySelectorAll('.datepicker');
-                var instances = M.Datepicker.init(elems, 'autoClose');
+                var instances = M.Datepicker.init(elems, {format:'yyyy-mm-dd'});
             });
         </script>
     </body>
