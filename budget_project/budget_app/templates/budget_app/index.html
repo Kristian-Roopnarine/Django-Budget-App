@@ -7,7 +7,6 @@
     <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel='stylesheet' type='text/css' href="{% static 'budget_app/style.css' %}">
         <title>Budget App</title>
         
        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,20 +22,24 @@
                 </ul>
             </div>
         </nav>
-
+        <br>
         <div class="section">
             <div class="row">
                 <form class="col s12" action='{% url "add item" %}' method='post'>
                     {% csrf_token %}
                     <div class="row">
-                        <div class="container">
+                        <div class="container center">
+                            <h3 class='center'>Your total budget is: <span style="color:green;">{{budget}}</span> dollars</h3>
+                            <h3 clas='center'>You've spent a total of : <span style="color:red;">{{expenses}}</span> dollars</h3>
+                            <br>
+                            <br>
                             <div class="input-field col s3">
                                 <input placeholder="Expense name" name="expense_name" id='expense_name' type='text' class='validate'>
                                 <label for='expense_name'>Expense name</label>
                             </div>
                             <div class="input-field col s3">
-                                <input placeholder='Cost' name='cost' id='cost' type='text' class='validate'>
-                                <label for='cost'>Cost</label>
+                                <input placeholder='Amount' name='cost' id='cost' type='text' class='validate'>
+                                <label for='cost'>Amount</label>
                             </div>
                             <div class="input-field col s3">
                                 <input placeholder='Date of Expense' name="expense_date" id="expense_date" type="text" class='datepicker'>
@@ -54,12 +57,12 @@
         <div class="section">
             <div class="row">
                 <div class="container">
-                    <div class="col s4">
-                        <table class="striped centered">
+                    <div class="col s6">
+                        <table class="striped centered responsive-table">
                             <thead>
                                 <tr>
                                     <th>Item</th>
-                                    <th>Cost</th>
+                                    <th>Amount</th>
                                     <th>Date</th>
                                     <th></th>
                                 </tr>
@@ -77,8 +80,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col s4 offset-s2">
-                        <h2>This is where the visualization would go .</h1>
+                    <div class="col s6">
+                        <img class='responsive-img' src= "{% static 'budget_app/expense.jpg' %}">
                     </div>
                 </div>
         </div>
